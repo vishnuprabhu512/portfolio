@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    
+<!-- navbar section starts  -->
+
+<nav class="navbar">
+    <a href="/"> <i class="fas fa-home"></i> <span>home</span> </a>
+    <a href="{% url 'about' %}"> <i class="fas fa-user"></i> <span>about</span> </a>
+    <a href="{% url 'portfolio' %}"> <i class="fas fa-briefcase"></i> <span>portfolio</span> </a>
+    <a href="{% url 'blogs' %}"> <i class="fas fa-blog"></i> <span>blogs</span> </a>
+    <a href="{% url 'contact' %}"> <i class="fas fa-address-book"></i> <span>contact</span> </a>
+</nav>
+
+<!-- navbar section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact">
+
+<h1 class="heading"> contact <span>me</span> </h1>
+
+<div class="row">
+
+    <div class="info-container">
+
+        <h1>get in touch</h1>
+
+        <p>A python and web developer from Ahmedabad in the India.</p>
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-map"></i>
+                <div class="info">
+                    <h3>address :</h3>
+                    <p>Ahmedabad, india - 382470</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <div class="info">
+                    <h3>email :</h3>
+                    <p style="text-transform: none;">v8shn7@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-phone"></i>
+                <div class="info">
+                    <h3>number :</h3>
+                    <p>+91 932-783-9162</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="share">
+            <a href="https://api.whatsapp.com/qr/3SOB6Z3UI6XDA1" class="fab fa-whatsapp" target="blank"></a>
+            <a href="https://www.instagram.com/v15hnu_pra6hu/" class="fab fa-instagram" target="blank"></a>
+            <a href="www.linkedin.com/in/v8shn7" class="fab fa-linkedin" target="blank"></a>
+            <a href="https://www.facebook.com/vishnu.prabhu.1998" class="fab fa-facebook-f" target="blank"></a>
+        </div>
+
+    </div>
+    
+
+    <form action="{% url 'contact' %}" method="POST">
+        <h1 style="color:#1877f2">{{msg}}</h1>
+        {% csrf_token %}
+
+        <div class="inputBox">
+            <input type="text" placeholder="YOUR NAME" name="name">
+            <input type="number" placeholder="YOUR NUMBER" name="number">
+        </div>
+
+        <div class="inputBox">
+            <input type="email" placeholder="YOUR EMAIL" name="email">
+            <input type="text" placeholder="YOUR SUBJECT" name="subject">
+        </div>
+
+        <textarea placeholder="YOUR MESSAGE" id="" cols="30" rows="10" name="message"></textarea>
+
+        <input type="submit" value="send message" class="btn">
+
+    </form>
+
+</div>
+
+</section>
+
+<!-- contact section ends -->
+
+</body>
+</html>
